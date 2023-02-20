@@ -62,17 +62,31 @@ function onlyLetterWhitespace($string){
 $str1 = "Name Mahin";
 $str2 = "Roll 99";
 
-var_dump(onlyLetterWhitespace($str1)); // true
-var_dump(onlyLetterWhitespace($str2)); // false
+var_dump(onlyLetterWhitespace($str1)); // output: true
+var_dump(onlyLetterWhitespace($str2)); // output: false
 
 
 
 // problem 5
 
+function findSecondLargest($arrayNum){
+    $max = $arrayNum[0];
+    $secondMax = 0;
+  
+    foreach ($arrayNum as $num){
+      if ($num > $max){
+        $secondMax = $max;
+        $max = $num;
+      } elseif ($num > $secondMax && $num != $max){
+        $secondMax = $num;
+      }
+    }
+  
+    return $secondMax;
+}
+  
 
+$arrayNum = [5,2,3,4,8,6];
+$secondLargest = findSecondLargest($arrayNum);
 
-
-
-
-
-
+echo "The second largest number is: " . $secondLargest; // output: The second largest number is: 6
